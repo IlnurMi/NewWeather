@@ -9,39 +9,40 @@
         android:id="@+id/base_layout"
         tools:context=".presentation.ui.activities.MenuActivity">
 
-   <LinearLayout android:layout_width="match_parent"
-                 android:layout_height="match_parent"
-                 android:orientation="horizontal"
-                 android:layout_weight="6">
+   <RelativeLayout android:layout_width="match_parent"
+                 android:layout_height="48dp">
 
        <EditText android:layout_width="match_parent"
                  android:layout_height="match_parent"
+                 android:layout_alignParentLeft="true"
+                 android:layout_toLeftOf="@id/imageButton_add"
+                 android:layout_marginRight="10dp"
                  android:id="@+id/edit_text"
-                 android:layout_weight="2"
                  tools:ignore="MissingConstraints"/>
        <ImageButton
-               android:layout_width="match_parent"
+               android:layout_width="48dp"
                android:layout_height="match_parent"
+               android:layout_alignParentRight="true"
                android:id="@+id/imageButton_add"
-               android:layout_weight="7"
                android:onClick="onClick"
                tools:ignore="MissingConstraints,OnClick"
-               android:src="@android:drawable/ic_menu_add" />
+               android:background="@drawable/ic_add_circle_outline_black_24dp"/>
 
-   </LinearLayout>
+   </RelativeLayout>
 
         <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:id="@+id/nes"
-                android:layout_weight="1"
-                >
+                android:layout_weight="1">
 
             <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:id="@+id/main_layout"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:showDividers="middle"
+                    android:divider="@drawable/divider">
 
             </LinearLayout>
 

@@ -2,6 +2,7 @@ package com.example.newweather.presentation.ui.activities
 
 import android.app.Activity
 import android.content.Intent
+import android.graphics.drawable.Drawable
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -86,9 +87,10 @@ class MainActivity : AppCompatActivity(), MainPresenter.View {
     }
 
     override fun showCityDate(cityModel: CityView) {
-        //image_view.setImageResource(R.drawable.ic_rainy)
-        Log.d("TAG", "Here in MainActivity Function ShowCityData  " + cityModel.icon)
-        Glide.with(this).load("http://openweathermap.org/img/w/" + cityModel.icon + ".png").into(image_view)
+        image_view.setImageResource(mainPresenter.getIcon(cityModel.icon))
+        //image_view.setImageResource(R.drawable.ic_shower_rain)
+        //Log.d("TAG", "Here in MainActivity Function ShowCityData  " + cityModel.icon)
+        //Glide.with(this).load("http://openweathermap.org/img/w/" + cityModel.icon + ".png").into(image_view)
         mCityTextView.text = cityModel.cityName
         //mTempTextView.setText(cityModel.temp)
         mTempTextView.text = cityModel.temp + " C"
@@ -98,15 +100,17 @@ class MainActivity : AppCompatActivity(), MainPresenter.View {
         mTempTextView_1.text = listView.get(0).temp + " C"
         mTempTextView_2.text = listView.get(1).temp + " C"
         mTempTextView_3.text = listView.get(2).temp + " C"
-        //image_1_view.setImageResource(R.drawable.ic_cloud)
-       // image_2_view.setImageResource(R.drawable.ic_foggy)
-        //image_3_view.setImageResource(R.drawable.ic_thunderstorm_clouds)
-        Glide.with(this).load("http://openweathermap.org/img/w/" + listView.get(0).icon + ".png").into(image_1_view)
-        Glide.with(this).load("http://openweathermap.org/img/w/" + listView.get(1).icon + ".png").into(image_2_view)
-        Glide.with(this).load("http://openweathermap.org/img/w/" + listView.get(2).icon + ".png").into(image_3_view)
+
+        image_1_view.setImageResource(R.drawable.ic_scattered_clouds)
+       image_2_view.setImageResource(R.drawable.ic_mist)
+        image_3_view.setImageResource(R.drawable.ic_thunderstorm)
+        //Glide.with(this).load("http://openweathermap.org/img/w/" + listView.get(0).icon + ".png").into(image_1_view)
+        //Glide.with(this).load("http://openweathermap.org/img/w/" + listView.get(1).icon + ".png").into(image_2_view)
+        //Glide.with(this).load("http://openweathermap.org/img/w/" + listView.get(2).icon + ".png").into(image_3_view)
         Log.d("TAG", "Here in MainActivity Function ShowCityData 0  " + listView.get(0).icon)
         Log.d("TAG", "Here in MainActivity Function ShowCityData 1  " + listView.get(1).icon)
         Log.d("TAG", "Here in MainActivity Function ShowCityData 2  " + listView.get(2).icon)
     }
 
 }
+

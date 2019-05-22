@@ -1,7 +1,11 @@
 package com.example.newweather.presentation.presenters.impl
 
+import android.graphics.drawable.Drawable
+import android.graphics.drawable.Icon
 import android.util.Log
+import android.widget.ImageView
 import com.bumptech.glide.Glide
+import com.example.newweather.R
 import com.example.newweather.domain.interactors.Interactor
 import com.example.newweather.domain.models.City
 import com.example.newweather.domain.models.CityList
@@ -14,8 +18,8 @@ import retrofit2.Callback
 import retrofit2.Response
 import java.text.SimpleDateFormat
 
-class MainPresenterImpl(val interactor: Interactor, val mainActivity: MainActivity): MainPresenter {
 
+class MainPresenterImpl(val interactor: Interactor, val mainActivity: MainActivity): MainPresenter {
 
     var cityModel: CityView? = null
     lateinit var cityModelList: CityListView
@@ -131,4 +135,22 @@ class MainPresenterImpl(val interactor: Interactor, val mainActivity: MainActivi
         return interactor.getCity()
     }
 
+
+    override fun getIcon(iconCode: String): Int {
+        return when(iconCode){
+            "01d" -> R.drawable.ic_clear_sky_day
+            "01n" -> R.drawable.ic_clear_sky_night
+            "02d" -> R.drawable.ic_few_clouds_day
+            "02n" -> R.drawable.ic_few_clouds_night
+            "03d" -> R.drawable.ic_scattered_clouds
+            "04d" -> R.drawable.ic_broken_clouds
+            "09d" -> R.drawable.ic_shower_rain
+            "10d" -> R.drawable.ic_rain_day
+            "10n" -> R.drawable.ic_rain_night
+            "11d" -> R.drawable.ic_thunderstorm
+            "13d" -> R.drawable.ic_snow
+            "50d" -> R.drawable.ic_mist
+            else -> R.drawable.ic_clear_sky_night
+        }
+    }
 }
